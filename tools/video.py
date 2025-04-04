@@ -3,7 +3,7 @@ import requests
 import os
 import colorama
 from colorama import Fore
-
+import os
 #import
 
 colorama.init()
@@ -84,7 +84,7 @@ for key, value in extracted_data.items():
     print(f"{key}: {value}")
 #the end reshetka
 
-
+#import os
 i = input("Нажите Enter")
 
 os.system("clear")

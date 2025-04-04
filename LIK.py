@@ -7,15 +7,19 @@ import os
 
 colorama.init()
 
-
+#info
+vers = "0.02"
+update = "Исправление ошибок"
 #ok
+
+
 
 headers = {'User-Agent': 'Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Mobile Safari/537.3'}
 
 
 info = """
 Developer> RESHETKA
-TELEGRAMM> NETY
+TELEGRAMM> @h1user
 ----------------------------
 
 ДАННЫЙ СОФТ СДЕЛАН ДЛЯ ПРИЛОЖЕНИЯ LIKEE!!!
@@ -25,13 +29,15 @@ TELEGRAMM> NETY
 
 menu = """
 [=] Developer: RESHETKA
-------------------------------------------------
+--------------------------------------------
 {+} 1. Скачать видео
 {+} 2. Информация о трансляции
 {+} 3. Информация о видео
 {+} 4. Продвижение в рекомендации
 {+} 5. Информация о софте
-------------------------------------------------
+{+} 6. Snosing
+[=] 0. Выход
+--------------------------------------------
 """
 #url = input("URL>")
 
@@ -59,8 +65,15 @@ if us == "3":
 if us == "4":
     from tools import top
 
+if us == "6":
+    from tools import snoser
+    
+
 if us =="5":
         print (Fore.BLUE + info)
+        print ("Версия софта:", vers)
+        print ("Последнее обновление:")
+        print (update)
         i = input("Нажмите Enter")
         os.system("clear")
         os.system("python3 LIK.py")
