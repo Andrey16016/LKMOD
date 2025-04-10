@@ -8,10 +8,13 @@ import os
 colorama.init()
 
 #info
-vers = "0.02"
+vers = "0.03"
 update = "Исправление ошибок"
 #ok
+##start = "python LIK.py"
 
+
+#command
 
 
 headers = {'User-Agent': 'Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Mobile Safari/537.3'}
@@ -67,6 +70,9 @@ if us == "4":
 
 if us == "6":
     from tools import snoser
+
+if us == "gener":
+    from tools import osint
     
 
 if us =="5":

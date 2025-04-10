@@ -3,6 +3,12 @@ import time
 import colorama
 from colorama import Fore
 
+
+
+import os
+
+os.system("clear")
+
 colorama.init()
 print (Fore.RED + "Скопируйте URL трансляции и вставьте!!!")
 time.sleep(1)

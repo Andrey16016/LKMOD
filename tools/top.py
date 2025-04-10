@@ -4,6 +4,9 @@ import colorama
 from colorama import Fore
 import os
 
+
+os.system("clear")
+
 colorama.init()
 headers = {'User-Agent': 'Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Mobile Safari/537.3'}
 
