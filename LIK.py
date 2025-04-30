@@ -1,3 +1,6 @@
+print ("Loading...")
+
+
 import time
 import requests
 #import random
@@ -8,10 +11,26 @@ import os
 colorama.init()
 
 #info
-vers = "0.03"
-update = "Исправление ошибок"
+vers = "0.04"
+update = "Исправление ошибок, добавление новых функций."
 #ok
 ##start = "python LIK.py"
+
+os.system("clear")
+print ("Проверка Cоединения с Likee")
+r = requests.get("https://likee.com/")
+if r.status_code == 200:
+    print ("Соединение установлено")
+    time.sleep(1)
+    os.system("clear")
+    
+else:
+    print ("Сервер не ответил!")
+    print ("Закрываю Программу")
+    exit()
+    
+    
+
 
 
 #command
@@ -71,8 +90,8 @@ if us == "4":
 if us == "6":
     from tools import snoser
 
-if us == "gener":
-    from tools import osint
+if us == "host":
+    from tools import host
     
 
 if us =="5":

@@ -30,7 +30,7 @@ for i in range(int(view)):
     else:
         print ("Ошибка запроса")
 
-i = input("Нацжмите Enter")
+i = input("Нажмите Enter")
 os.system("clear")
 os.system("python3 LIK.py")
 
