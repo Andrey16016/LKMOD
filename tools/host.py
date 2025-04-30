@@ -22,7 +22,7 @@ us = input("[=] Выбирай>")
 
 if us == "1":
     print ("Запуск Сервера...")
-    os.system("python -m http.server")
+    os.system("python3 -m http.server")
     print ("Server запущен!")
     #start server
 else:
