@@ -1,3 +1,9 @@
+import os
+
+os.system("clear")
+
+
+
 logo = """
 ╭╮╭┳━━┳━━┳━╮
 ┃┃┃┃━━┫┃━┫╭╯
@@ -12,7 +18,6 @@ logo = """
 
 import requests
 import time
-import os
 import colorama
 from colorama import Fore
 
