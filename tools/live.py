@@ -104,4 +104,4 @@ for key, value in data_dict.items():
 i = input("Нажмите enter")
 os.system("clear")
 #ok
-os.system("python3 LIK.PY")
+os.system("python3 LIK.py")
