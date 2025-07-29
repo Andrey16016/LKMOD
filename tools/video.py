@@ -1,95 +1,95 @@
-#import re
+#SETINGS
+headers = {'User-Agent': 'Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Mobile Safari/537.3'}
+
+
+
+
+import time
 import requests
 import os
 import colorama
 from colorama import Fore
-import os
-#import
+import re
 
 colorama.init()
 
-os.system("clear")
-headers = {'User-Agent': 'Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Mobile Safari/537.3'}
-#scriptq
+logo = """
+{+} Ищет информацию о видео по URL
+Введите ссылку на видео ниже!
+"""
 
-
-print (Fore.RED + "Чтобы получить информацию о видео вставьте url нижe")
+print (Fore.GREEN + logo)
 print (Fore.YELLOW + "")
+#logo
+
+url = input("URL VIDEO>")
 
 
-url = input("[+] URL VIDEO>")
-
-print ("{=} Ищем данные...")
 res = requests.get(url, headers=headers)
-#  print (res.text)
-import time
-#time.sleep(909)
 
-import re
+code_example = (res.text)
 
-data = (res.text)
-#import re
+match_uid = re.search(r'"poster_uid":\s*"([^"]*)"', code_example)
+match_nick = re.search(r'"nick_name":\s*"([^"]*)"', code_example)
+match_avatar = re.search(r'"data1":\s*"([^"]*)"', code_example)
+
+match_post = re.search(r'"post_id":\s*"([^"]*)"', code_example)
+match_id = re.search(r'"like_id":\s*"([^"]*)"', code_example)
+#match_ = re.search(r'"nick_name":\s*"([^"]*)"', code_example)
+match_idavatar = re.search(r'"image2":\s*"([^"]*)"', code_example)
+#share_text2
+match_comment = re.search(r'"comment_count":\s*"([^"]*)"', code_example)
+match_msg = re.search(r'"msg_text":\s*"([^"]*)"', code_example)
+match_date = re.search(r'"uploadDate":\s*"([^"]*)"', code_example)
+match_location = re.search(r'"post_country":\s*"([^"]*)"', code_example)
+match_text = re.search(r'"share_text2":\s*"([^"]*)"', code_example)
+#data1
 
 
-translations = {
-    "@context": "Контекст",
-    "@type": "Тип",
-    "name": "Имя",
-    "description": "Описание",
-    "thumbnailUrl": "URL превью",
-    "contentUrl": "URL контента",
-    "commentCount": "Количество комментариев",
-    "uploadDate": "Дата загрузки",
-    "duration": "Длительность",
-    "width": "Ширина",
-    "height": "Высота",
-    "mainEntityOfPage": "Главная сущность страницы",
-    "author": "Автор",
-    "alternateName": "Альтернативное имя",
-    "@id": "ID",
-    "position": "Позиция",
-    "item": "Элемент",
-    "itemListElement": "Список элементов",
-    "seoUrl": "SEO URL",
-    "domain": "Домен",
-    "title": "Заголовок",
-    "url": "URL"
-}
 
-def extract_json_like_data(data):
-    """Extracts and translates JSON-like data from a larger text."""
-    data_dict = {}
-    lines = data.splitlines()
 
-    for line in lines:
-        line = line.strip()
-        if not line:
-            continue
+share_uid = match_uid.group(1)
+print(f"ID пользователя: {share_uid}")
 
-        if ':' in line:
-            key, value = line.split(':', 1)
-            key = key.strip().replace('"', '').replace('{','').replace('[','').replace('}','').replace(']','')
-            value = value.strip().replace('"', '').replace('{','').replace('[','').replace('}','').replace(']','').replace(',','')
+share_nick = match_nick.group(1)
+print(f"Никнейм: {share_nick}")
 
-            if key in translations:
-                translated_key = translations[key]
-                data_dict[translated_key] = value
+share_avatar = match_avatar.group(1)
+print(f"Аватарка: {share_avatar}")
 
-    return data_dict
+share_post = match_post.group(1)
+print(f"POST ID: {share_post}")
 
-extracted_data = extract_json_like_data(data)
+share_id = match_id.group(1)
+print(f"USERBAME: @{share_id}")
 
-# Print the extracted dёкata in a column format with translations
-for key, value in extracted_data.items():
-    print(f"{key}: {value}")
-#the end reshetka
+share_idavatar = match_idavatar.group(1)
+print(f"Превью: {share_idavatar}")
 
-#import os
-i = input("Нажите Enter")
+share_comment = match_comment.group(1)
+print(f"Koличество Сomment: {share_comment}")
 
+share_msg = match_msg.group(1)
+print(f"Описание: {share_msg}")
+
+share_location = match_location.group(1)
+print(f"Cтрана: {share_location}")
+
+
+share_text = match_text.group(1)
+print (Fore.GREEN + "")
+print(f"Информация: {share_text}")
+
+i = input("Menu Enter")
 os.system("clear")
 os.system("python3 LIK.py")
-time.sleep(3)
+
+
+
+
+
+
+
 
 
 

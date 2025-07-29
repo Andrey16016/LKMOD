@@ -1,3 +1,4 @@
+print ("")
 import os
 
 os.system("clear")
@@ -13,6 +14,7 @@ logo = """
 
 #hello world
 #RESHETKA
+#RAZVEDKA
 
 
 
