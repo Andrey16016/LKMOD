@@ -22,7 +22,7 @@ body = """
 """
 
 
-print (Fore.RED + body)
+print (Fore.YELLOW + body)
 
 #password = input("[=]Пароль:")
 
