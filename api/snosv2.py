@@ -75,6 +75,8 @@ else:
 #information support
 
 
+x_auth_token = input("Введите токен>")
+
 device_id = ''.join(secrets.choice(string.hexdigits.lower()) for _ in range(40))
 
 
@@ -132,9 +134,9 @@ data4 = {
 #script
 
 for i in range(int(bots)):
-    filename = 'tokens.txt'
-    with open(filename, 'r', encoding='utf-8') as f:
-        x_auth_token = (random.choice(f.readlines()).strip())
+   # filename = 'tokens.txt'
+   # with open(filename, 'r', encoding='utf-8') as f:
+     #   x_auth_token = (random.choice(f.readlines()).strip())
 
     headers = {
         'Content-type': 'application/json',
