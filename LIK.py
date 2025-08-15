@@ -5,6 +5,8 @@ txt = '''
 Добро пожаловать!
 
 Данный софт был написан для взаимодействия с Likee!
+
+
 '''
 
 
@@ -14,11 +16,12 @@ print ("Loading...")
 
 import base64
 import time
-#import requests
+import requests
 #import random
 import colorama
-from colorama import Fore
+from colorama import Fore, Back, Style
 import os
+
 
 colorama.init()
 os.system("clear")
@@ -36,6 +39,7 @@ if key == code:
     #print ("Доступ разрешен!")
     os.system("clear")
 else:
+    print ("")
     for i in txt:
         time.sleep(0.04)
         print(i, end='', flush=True)
@@ -63,7 +67,7 @@ else:
 
 
 #info
-vers = "0.06"
+vers = "0.08"
 update = "Исправление ошибок, добавление новых функций."
 
 
@@ -85,9 +89,9 @@ Developer> (RESHETKA), RAZVEDKA
 ----------------------------
 
 Версия> {vers}
-ДАННЫЙ СОФТ СДЕЛАН ДЛЯ ВЗАИМОДЕЙСТВИЯ С LIKEE!
+LIKEEROOT - ЭТО  СОФТ СДЕЛАНЫЙ ДЛЯ ВЗАИМОДЕЙСТВИЯ С LIKEE!
 
-ОБНОВЛЕНИЕ 30.07.2025
+ОБНОВЛЕНИЕ 15.08.2025
 
 {update}
 
@@ -107,6 +111,7 @@ menu = """
 {+} 7. Поиск по username
 {+} 8. Данные о видео из аккаунта
 {+} 9. Информация об аккаунте
+{+} 10. Account (TENEVOI BAN)
 
 
 [=] 0. Выход
@@ -117,8 +122,9 @@ menu = """
 
 with open("logo.txt", "r", encoding='utf-8') as file:
     logo = content = file.read()
-    print (Fore.RED + logo)
+    print (Fore.WHITE + Back.RED + logo + Style.RESET_ALL)
 
+#print (Fore.YELLOW + "")
 print (Fore.YELLOW + menu)
 
 #scripts
@@ -152,6 +158,9 @@ if us == "9":
 
 if us == "avtosnos":
     from api import snosv2
+
+if us == "10":
+    from api import accountsnos
     
 
 

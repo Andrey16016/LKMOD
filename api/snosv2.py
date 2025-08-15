@@ -1,6 +1,6 @@
 #SETINGS
 headers = {'User-Agent': 'Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Mobile Safari/537.3'}
-bots = "12"
+bots = "1"
 valid = '{"code":0,"data":{"success":true,"receipt":null},"message":"ok"}'
 #-----
 print ("")
@@ -79,7 +79,11 @@ x_auth_token = input("Введите токен>")
 
 device_id = ''.join(secrets.choice(string.hexdigits.lower()) for _ in range(40))
 
+with open("suport.txt", 'r', encoding='utf-8') as f:
+    texts = f.readlines()
+    suport = (random.choice(texts).strip())
 
+data_json = {"description": suport, "attachments": []}
 
 data1 = {
     "deviceId": device_id,
@@ -89,7 +93,7 @@ data1 = {
     "tagId": "",
     "tagName": "",
     "reportedId": video,
-    "dataJson": "{\"description\":\"\",\"attachments\":[]}"
+    "dataJson": "{\"description\":\"Плохое поведение людей в обществе\",\"attachments\":[]}"
 }
 
 data2 = {
@@ -100,7 +104,7 @@ data2 = {
   "tagId": "",
   "tagName": "",
   "reportedId": video,
-  "dataJson": "{\"description\":\"\",\"attachments\":[]}"
+  "dataJson": "{\"description\":\"В видео показано порно с несовершеннолетними детьми!\",\"attachments\":[]}"
 }
 
 
@@ -113,7 +117,7 @@ data3 = {
   "tagId": "",
   "tagName": "",
   "reportedId": video,
-  "dataJson": "{\"description\":\"\",\"attachments\":[]}"
+  "dataJson": "{\"description\":\"В видео показаны наркотики, оружие, расчлененка, ножи.\",\"attachments\":[]}"
 }
 
 data4 = {
@@ -124,8 +128,91 @@ data4 = {
   "tagId": "",
   "tagName": "",
   "reportedId": video,
-  "dataJson": "{\"description\":\"Здравствуйте, данный аккаунт распространяет порнографию, ложную информацию, торгует наркотиками! Прошу срочно принять меры!\",\"attachments\":[]}"
+  "dataJson": json.dumps(data_json, ensure_ascii=False)
 }
+
+data5 = {
+  "deviceId": device_id,
+  "language": "ru",
+  "id": "10001",
+  "reason": "Ложная информация",
+  "tagId": "",
+  "tagName": "",
+  "reportedId": video,
+  "dataJson": "{\"description\":\"Распространение ложной информации  в видеороликах, прошу принять меры.\",\"attachments\":[]}"
+}
+
+data6 = {
+  "deviceId": device_id,
+  "language": "ru",
+  "id": "10003",
+  "reason": "Оскорбительный или издевающийся",
+  "tagId": "",
+  "tagName": "",
+  "reportedId": video,
+  "dataJson": "{\"description\":\"Оскорбления в сторону людей, примите меры!\",\"attachments\":[]}"
+}
+
+
+
+data7 = {
+  "deviceId": device_id,
+  "language": "ru",
+  "id": "10005",
+  "reason": "Недопустимый политический или религиозный контент",
+  "tagId": "",
+  "tagName": "",
+  "reportedId": video,
+  "dataJson": "{\"description\":\"Террористическая деятельность, оскорбление религии!\",\"attachments\":[]}"
+}
+
+
+
+
+
+headers = {
+    'Content-type': 'application/json',
+    'User-Agent': user_agent,
+    'X-Auth-Token': x_auth_token,
+    'Accept-Language': 'ru'
+}
+
+
+os.system("clear")
+res = requests.post(url, data=json.dumps(data1), headers=headers)
+if res.text == valid:
+    print ("Успешно")
+else:
+    print ("")
+    print ("Токен устарел")
+    time.sleep(1.10)
+    os.system("clear")
+    os.system("python3 LIK.py")
+    exit()
+    #the end
+    
+print (res.text, "")
+time.sleep(1.10)
+res = requests.post(url, data=json.dumps(data2), headers=headers)
+print (res.text, "")
+time.sleep(1.10)
+res = requests.post(url, data=json.dumps(data3), headers=headers)
+print (res.text, "")
+time.sleep(1.10)
+res = requests.post(url, data=json.dumps(data4), headers=headers)
+print (res.text, "")
+time.sleep(1.10)
+res = requests.post(url, data=json.dumps(data5), headers=headers)
+print (res.text, "")
+time.sleep(1.10)
+res = requests.post(url, data=json.dumps(data6), headers=headers)
+time.sleep(1.10)
+res = requests.post(url, data=json.dumps(data7), headers=headers)
+print (res.text)
+time.sleep(1)
+
+
+
 
 
 
@@ -133,39 +220,6 @@ data4 = {
 
 #script
 
-for i in range(int(bots)):
-   # filename = 'tokens.txt'
-   # with open(filename, 'r', encoding='utf-8') as f:
-     #   x_auth_token = (random.choice(f.readlines()).strip())
-
-    headers = {
-        'Content-type': 'application/json',
-        'User-Agent': user_agent,
-        'X-Auth-Token': x_auth_token
-        }
-
-    
-    res = requests.post(url, data=json.dumps(data1), headers=headers)
-    if res.text == valid:
-        os.system("clear")
-        print (f"+ Успешно + Поток> {i+1}")
-    else:
-        os.system("clear")
-        print ("Ошибка, токены устарели")
-        
-    #print (res.text)
-    time.sleep(1)
-    res = requests.post(url, data=json.dumps(data2), headers=headers)
-    print (res.text)
-    time.sleep(1)
-    res = requests.post(url, data=json.dumps(data3), headers=headers)
-    #print (res.text)
-    time.sleep(1)
-    res = requests.post(url, data=json.dumps(data4), headers=headers)
-    print(res.text)
-    print ("Ожидпние следущего потока...")
-    time.sleep(5)
-    time.sleep(1)
 
 
 print ("Все жалобы отправлены!")
